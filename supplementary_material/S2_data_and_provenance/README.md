@@ -1,4 +1,4 @@
-# S2. Data and provenance
+  # S2. Data and provenance
 
 This package contains the supplied trial-level CSV exports used to document the collision experiments. All data files are arranged under `data/` in three collision-head folders:
 
@@ -10,9 +10,21 @@ Thus, the package contains 57 CSV exports in total. Each folder contains only th
 
 The first comment line identifies the export format; subsequent metadata and force/event records are retained as provided. These files are evidence of data provenance and should be treated as read-only source records. `.DS_Store` is not experimental data and is excluded from the manifest.
 
+## Data-screening rules and use in the manuscript
+
+The records were screened before analysis using the following rules:
+
+1. A trial had to contain a complete force record, both incident and rebound Hall-gate events, the required timestamps, and the metadata needed to calculate the force-derived impulse and gate-based momentum change.
+2. Trials with missing or duplicated gate events, incomplete force traces, sensor saturation or clipping, corrupted exports, or an indeterminate contact interval were excluded from quantitative comparison.
+3. For the valid buffered-foam records, the raw and corrected symmetric relative differences were calculated using the definitions in the manuscript. Eleven buffered-foam trials with comparatively small differences and complete records were selected for the main impulse–momentum demonstration in Table II and Fig. 3, so that the figure presents a clear quantitative comparison of the two measurement paths.
+4. The remaining buffered-foam records were not discarded as fabricated or unusable. Their differences remain within the experimentally controllable range and the original CSV files are retained here for independent inspection and alternative analyses. The selection of 11 trials is therefore a presentation subset for the theorem comparison, rather than a claim that only these trials were measured.
+5. The stiff-head and collapsing-head records were collected to show how collision-head construction changes the force–time (F–t) profile. They are used for the representative F–t feature plots in Fig. 4 and are not pooled with the buffered-foam trials for the quantitative impulse–momentum comparison.
+
+This separation keeps the quantitative theorem demonstration consistent across one collision-head condition while preserving the other records for illustrating differences in peak force, interaction duration, and waveform structure.
+
 ## Suggested citation in the manuscript
 
-Cite this package in the Methods section when defining the recorded quantities, in Results and discussion when reporting the 11 valid buffered-foam trials, and in Measurement limitations when referring to calibration records and excluded trials: **Supplementary Material S2, Data and provenance, repository commit used for the submission**.
+Cite this package in the Methods section when defining the recorded quantities, in Results and discussion when reporting the 11 valid buffered-foam trials, and in Measurement limitations when referring to calibration records, the screening rules, and the remaining records: **Supplementary Material S2, Data and provenance, repository commit used for the submission**.
 
 A future release should add a machine-readable manifest with file hashes, firmware revision, calibration values, inclusion/exclusion status, and the exact script used to reproduce Table II and Fig. 3.
 
